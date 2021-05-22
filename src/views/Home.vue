@@ -1,18 +1,26 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
-  </div>
+  <LauchList :loading="loading" :error="error" :data="data" />
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import HelloWorld from "@/components/HelloWorld.vue";
+import { mapState, useStore } from "vuex";
+import LauchList from "@/components/LauchList.vue";
+import { key } from "@/store";
 
 export default defineComponent({
   name: "Home",
   components: {
-    HelloWorld,
+    LauchList,
+  },
+  mounted() {
+    const store = useStore(key);
+
+    store.dispatch("lauches/load");
+  },
+
+  computed: {
+    ...mapState("lauches", ["loading", "error", "data"]),
   },
 });
 </script>
