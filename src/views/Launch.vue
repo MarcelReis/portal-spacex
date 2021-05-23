@@ -39,7 +39,7 @@
 
       <div class="grid grid-cols-12 gap-6">
         <div class="col-span-12 md:col-span-8">
-          <div class="px-4 mb-16 bg-gray-100 py-2 rounded-lg p-3">
+          <div class="px-4 mx-3 mb-16 bg-gray-100 py-2 rounded-lg p-3">
             {{ launch.details ?? "No details provided" }}
           </div>
 
@@ -129,7 +129,7 @@
           </div>
 
           <div class="mb-8">
-            <h2 class="text-2xl mb-4 px-4">Links</h2>
+            <h2 class="text-2xl mb-4 px-4">Gallery</h2>
             <PhotoGallery :imgs="launch.links.flickr.original" />
           </div>
         </div>
