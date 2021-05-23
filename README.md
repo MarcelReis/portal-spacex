@@ -1,4 +1,8 @@
-# portal-spacex
+<h1 align="center">Portal SpaceX</h1>
+
+<p align="center">
+  <img src="/public/img/logo-readme.png" width="300px" height="300px" />
+</p>
 
 ## Project setup
 ```
