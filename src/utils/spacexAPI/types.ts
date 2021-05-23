@@ -11,10 +11,10 @@ export interface Patch {
 }
 
 export interface Reddit {
-  campaign: string;
-  launch: string;
-  media: string;
-  recovery: string;
+  campaign: string | null;
+  launch: string | null;
+  media: string | null;
+  recovery: string | null;
 }
 
 export interface Flickr {
@@ -26,7 +26,7 @@ export interface Links {
   patch: Patch;
   reddit: Reddit;
   flickr: Flickr;
-  presskit: string;
+  presskit: string | null;
   webcast: string;
   youtube_id: string;
   article: string;
@@ -35,7 +35,7 @@ export interface Links {
 
 export interface Failure {
   time: number;
-  altitude?: number;
+  altitude?: number | null;
   reason: string;
 }
 
@@ -46,15 +46,15 @@ export interface Core {
   legs: boolean;
   reused: boolean;
   landing_attempt: boolean;
-  landing_success?: boolean;
-  landing_type: string;
-  landpad: string;
+  landing_success?: boolean | null;
+  landing_type: string | null;
+  landpad: string | null;
 }
 
 export interface LaunchesResponse {
   fairings: Fairings;
   links: Links;
-  static_fire_date_utc?: Date;
+  static_fire_date_utc?: string | null;
   static_fire_date_unix?: number;
   tbd: boolean;
   net: boolean;
@@ -68,13 +68,13 @@ export interface LaunchesResponse {
   payloads: string[];
   launchpad: string;
   auto_update: boolean;
-  launch_library_id: string;
+  launch_library_id: string | null;
   failures: Failure[];
   flight_number: number;
   name: string;
-  date_utc: Date;
+  date_utc: string;
   date_unix: number;
-  date_local: Date;
+  date_local: string;
   date_precision: string;
   upcoming: boolean;
   cores: Core[];
@@ -180,7 +180,7 @@ export interface Engines {
 
 export interface LandingLegs {
   number: number;
-  material: string;
+  material: string | null;
 }
 
 export interface PayloadWeight {
