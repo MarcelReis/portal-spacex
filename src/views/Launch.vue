@@ -44,7 +44,7 @@
           </div>
 
           <div class="md:px-4 md:rounded-2xl md:overflow-hidden mb-16">
-            <YoutubePlayer :id="launch.links.youtube_id" />
+            <youtube-player :id="launch.links.youtube_id" />
           </div>
 
           <div class="px-4 mb-8" v-if="!missingReddit">
@@ -130,7 +130,7 @@
 
           <div class="mb-8">
             <h2 class="text-2xl mb-4 px-4">Gallery</h2>
-            <PhotoGallery :imgs="launch.links.flickr.original" />
+            <photo-gallery :imgs="launch.links.flickr.original" />
           </div>
         </div>
       </div>

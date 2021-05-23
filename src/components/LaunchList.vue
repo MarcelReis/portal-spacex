@@ -7,7 +7,7 @@
     <p v-if="loading">Loading...</p>
     <p v-else-if="error">{{ error.msg }}</p>
     <ul v-else class="m-0 flex flex-col gap-2">
-      <LauchItem
+      <launch-item
         v-for="launch in data"
         :key="launch.id"
         :id="launch.id"
@@ -25,13 +25,13 @@
 </template>
 
 <script lang="ts">
-import LauchItem from "@/components/LaunchItem.vue";
+import LaunchItem from "@/components/LaunchItem.vue";
 import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "LaunchList",
   components: {
-    LauchItem,
+    LaunchItem,
   },
   props: {
     title: String,

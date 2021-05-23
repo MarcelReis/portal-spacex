@@ -11,7 +11,7 @@
     "
   >
     <div class="col-span-1">
-      <LaunchList
+      <launch-list
         title="Future Launches"
         :loading="launchesLoading"
         :error="launchesError"
@@ -20,7 +20,7 @@
     </div>
 
     <div class="col-span-1">
-      <LaunchList
+      <launch-list
         title="Past Launches"
         :loading="launchesLoading"
         :error="launchesError"
@@ -29,7 +29,7 @@
     </div>
 
     <div class="md:col-span-2 lg:col-span-1">
-      <RocketList
+      <rocket-list
         title="Rockets"
         :loading="rocketsLoading"
         :error="rocketsError"
