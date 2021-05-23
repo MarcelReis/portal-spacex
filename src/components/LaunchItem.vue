@@ -1,33 +1,28 @@
 <template>
-  <li class="collection-item avatar">
-    <img
-      :src="thumb ?? 'https://via.placeholder.com/50'"
-      alt=""
-      class="circle"
-    />
-    <p class="title">
-      <b>{{ name }}</b>
-      <br />
-      <span>{{ date }}</span>
-    </p>
+  <li>
+    <div>
+      <img :src="thumb ?? 'https://via.placeholder.com/50'" alt="" />
 
-    <span class="secondary-content">
-      <span class="badge green" v-if="success && !upcoming"> Success </span>
-      <span class="badge red" v-else-if="!success && !upcoming">Fail</span>
+      <div>
+        <h2>{{ name }}</h2>
+        <br />
+        <span>{{ date }}</span>
+      </div>
+    </div>
+
+    <span>
+      <span v-if="success && !upcoming"> Success </span>
+      <span v-else-if="!success && !upcoming">Fail</span>
     </span>
 
-    <p class="description">{{ details }}</p>
+    <p>{{ details }}</p>
 
-    <div class="badge-row">
-      <span class="badge" v-if="payloads.length">
-        {{ payloads.length }} Payload(s)
-      </span>
-      <span class="badge" v-else>No Payload</span>
+    <div>
+      <span v-if="payloads.length"> {{ payloads.length }} Payload(s) </span>
+      <span v-else>No Payload</span>
 
-      <span class="badge" v-if="crew.length">
-        {{ crew.length }} Astronaut(s)
-      </span>
-      <span class="badge" v-else>No Crew</span>
+      <span v-if="crew.length"> {{ crew.length }} Astronaut(s) </span>
+      <span v-else>No Crew</span>
     </div>
   </li>
 </template>
@@ -51,21 +46,4 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-.description {
-  margin: 8px 0 !important;
-  min-height: 66px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.badge-row {
-  display: flex;
-  justify-content: flex-end;
-}
-.badge.green,
-.badge.red {
-  color: #fff;
-}
-</style>
+<style scoped></style>
