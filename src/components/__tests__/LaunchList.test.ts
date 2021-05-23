@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom";
-import { failedLauncheMock } from "@/__mocks__/api";
+import { failedLaunchMock } from "@/__mocks__/api";
 import { render, screen } from "@testing-library/vue";
 import LaunchList from "../LaunchList.vue";
 
@@ -14,11 +14,11 @@ describe("<LaunchList />", () => {
 
   it("render the list of elements", async () => {
     render(LaunchList, {
-      props: { loading: false, error: undefined, data: [failedLauncheMock] },
+      props: { loading: false, error: undefined, data: [failedLaunchMock] },
     });
 
     expect(screen.queryByText("Loading...")).not.toBeInTheDocument();
 
-    expect(screen.getByText(failedLauncheMock.name)).toBeInTheDocument();
+    expect(screen.getByText(failedLaunchMock.name)).toBeInTheDocument();
   });
 });

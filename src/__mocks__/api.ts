@@ -1,4 +1,4 @@
-export const failedLauncheMock = {
+export const failedLaunchMock = {
   fairings: {
     reused: false,
     recovery_attempt: false,
