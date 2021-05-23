@@ -1,5 +1,10 @@
 {
-  "name": "App",
+  "name": "Portal SpaceX",
+  "theme_color": "#34495e",
+  "background_color": "#34495e",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
   "icons": [
     {
       "src": "/img/icons/android-icon-36x36.png",
