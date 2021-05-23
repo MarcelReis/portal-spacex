@@ -43,7 +43,7 @@
             {{ launch.details ?? "No details provided" }}
           </div>
 
-          <div class="md:px-4 md:rounded-2xl md:overflow-hidden mb-16">
+          <div class="md:mx-4 md:rounded-2xl md:overflow-hidden mb-16">
             <youtube-player :id="launch.links.youtube_id" />
           </div>
 
