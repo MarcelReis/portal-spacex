@@ -1,4 +1,4 @@
-import { LauchesResponse } from "./types";
+import { LaunchesResponse } from "./types";
 
 class SpaceX {
   private url: string;
@@ -7,7 +7,7 @@ class SpaceX {
     this.url = "https://api.spacexdata.com/v4";
   }
 
-  async getLauches(): Promise<LauchesResponse> {
+  async getLaunches(): Promise<LaunchesResponse> {
     const response = await fetch(`${this.url}/launches`, {
       method: "GET",
     });

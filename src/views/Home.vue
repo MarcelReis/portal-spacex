@@ -1,26 +1,49 @@
 <template>
-  <LauchList :loading="loading" :error="error" :data="data" />
+  <div class="container launches">
+    <div>
+      <h3>Future Launches</h3>
+      <LaunchList :loading="loading" :error="error" :data="futureLaunches" />
+    </div>
+
+    <div>
+      <h3>Past Launches</h3>
+      <LaunchList :loading="loading" :error="error" :data="pastLaunches" />
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { mapState, useStore } from "vuex";
-import LauchList from "@/components/LauchList.vue";
+import { mapGetters, mapState, useStore } from "vuex";
+import LaunchList from "@/components/LaunchList.vue";
 import { key } from "@/store";
 
 export default defineComponent({
   name: "Home",
   components: {
-    LauchList,
+    LaunchList,
   },
   mounted() {
     const store = useStore(key);
 
-    store.dispatch("lauches/load");
+    store.dispatch("launches/load");
   },
 
   computed: {
-    ...mapState("lauches", ["loading", "error", "data"]),
+    ...mapState("launches", ["loading", "error"]),
+    ...mapGetters("launches", ["pastLaunches", "futureLaunches"]),
   },
 });
 </script>
+
+<style>
+.launches {
+  display: grid;
+}
+@media (min-width: 768px) {
+  .launches {
+    gap: 32px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+</style>

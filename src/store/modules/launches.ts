@@ -1,24 +1,30 @@
-import spacexAPI from "@/utils/spacexAPI";
+import spacexAPI, { LaunchesResponse } from "@/utils/spacexAPI";
 import { Module } from "vuex";
 import { RootStoreState } from "..";
 
-export interface LauchesStoreState {
+export interface LaunchesStoreState {
   loading: null | boolean;
   error: unknown;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  data: any;
+  data: LaunchesResponse[];
 }
 
-const lauches: Module<LauchesStoreState, RootStoreState> = {
+const Launches: Module<LaunchesStoreState, RootStoreState> = {
   namespaced: true,
 
   state: {
     loading: null,
     error: null,
-    data: {},
+    data: [],
   },
 
-  getters: {},
+  getters: {
+    pastLaunches: (state: LaunchesStoreState) => {
+      return state.data.filter(({ upcoming }) => !upcoming);
+    },
+    futureLaunches: (state: LaunchesStoreState) => {
+      return state.data.filter(({ upcoming }) => upcoming);
+    },
+  },
 
   mutations: {
     startLoading(state) {
@@ -40,7 +46,7 @@ const lauches: Module<LauchesStoreState, RootStoreState> = {
       context.commit("startLoading");
 
       try {
-        const data = await spacexAPI.getLauches();
+        const data = await spacexAPI.getLaunches();
         context.commit("successLoading", data);
       } catch (error) {
         context.commit("failLoading", error);
@@ -49,4 +55,4 @@ const lauches: Module<LauchesStoreState, RootStoreState> = {
   },
 };
 
-export default lauches;
+export default Launches;

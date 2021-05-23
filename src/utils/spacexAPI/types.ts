@@ -51,7 +51,7 @@ export interface Core {
   landpad: string;
 }
 
-export interface LauchesResponse {
+export interface LaunchesResponse {
   fairings: Fairings;
   links: Links;
   static_fire_date_utc?: Date;

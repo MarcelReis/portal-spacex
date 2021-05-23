@@ -1,11 +1,11 @@
 import { ComponentCustomProperties } from "vue";
 import { Store } from "vuex";
 
-import { LauchesStoreState } from "@/store/modules/lauches";
+import { LaunchesStoreState } from "@/store/modules/Launches";
 
 declare module "@vue/runtime-core" {
   interface State {
-    lauches: LauchesStoreState;
+    Launches: LaunchesStoreState;
   }
 
   interface ComponentCustomProperties {
