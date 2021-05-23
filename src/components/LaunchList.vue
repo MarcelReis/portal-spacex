@@ -1,22 +1,27 @@
 <template>
-  <ul v-if="!loading && !error" class="collection">
-    <LauchItem
-      v-for="launch in data"
-      :key="launch.id"
-      :id="launch.id"
-      :name="launch.name"
-      :date="launch.date_utc"
-      :thumb="launch.links.patch.small"
-      :crew="launch.crew"
-      :payloads="launch.payloads"
-      :success="launch.success"
-      :upcoming="launch.upcoming"
-      :details="launch.details"
-    />
-  </ul>
+  <div>
+    <header>
+      <h2 class="text-2xl mb-4">{{ title }}</h2>
+    </header>
 
-  <p v-if="loading">Loading...</p>
-  <p v-else-if="error">{{ error.msg }}</p>
+    <p v-if="loading">Loading...</p>
+    <p v-else-if="error">{{ error.msg }}</p>
+    <ul v-else class="m-0 flex flex-col gap-2">
+      <LauchItem
+        v-for="launch in data"
+        :key="launch.id"
+        :id="launch.id"
+        :name="launch.name"
+        :date="launch.date_utc"
+        :thumb="launch.links.patch.small"
+        :crew="launch.crew"
+        :payloads="launch.payloads"
+        :success="launch.success"
+        :upcoming="launch.upcoming"
+        :details="launch.details"
+      />
+    </ul>
+  </div>
 </template>
 
 <script lang="ts">
@@ -29,6 +34,7 @@ export default defineComponent({
     LauchItem,
   },
   props: {
+    title: String,
     loading: Boolean,
     error: Error,
     data: Object,
@@ -36,13 +42,4 @@ export default defineComponent({
 });
 </script>
 
-<style>
-.launches {
-  display: grid;
-}
-@media (min-width: 768px) {
-  .launches {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-</style>
+<style></style>

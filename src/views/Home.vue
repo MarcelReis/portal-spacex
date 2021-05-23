@@ -1,14 +1,28 @@
 <template>
-  <div class="container launches">
-    <div>
-      <h3>Future Launches</h3>
-      <LaunchList :loading="loading" :error="error" :data="futureLaunches" />
-    </div>
+  <div
+    class="
+      container
+      mx-auto
+      grid grid-cols-1
+      md:grid-cols-2
+      gap-x-6
+      px-3
+      lg:grid-cols-3
+    "
+  >
+    <LaunchList
+      title="Future Launches"
+      :loading="loading"
+      :error="error"
+      :data="futureLaunches"
+    />
 
-    <div>
-      <h3>Past Launches</h3>
-      <LaunchList :loading="loading" :error="error" :data="pastLaunches" />
-    </div>
+    <LaunchList
+      title="Past Launches"
+      :loading="loading"
+      :error="error"
+      :data="pastLaunches"
+    />
   </div>
 </template>
 
@@ -36,14 +50,4 @@ export default defineComponent({
 });
 </script>
 
-<style>
-.launches {
-  display: grid;
-}
-@media (min-width: 768px) {
-  .launches {
-    gap: 32px;
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-</style>
+<style></style>
