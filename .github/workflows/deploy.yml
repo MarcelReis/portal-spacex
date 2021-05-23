@@ -15,11 +15,14 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Build project
-        run: yarn run build
+      - name: Lint files
+        run: yarn run lint
 
       - name: Unit tests
         run: yarn run test:unit --coverage
+
+      - name: Build project
+        run: yarn run build
 
       - name: Upload code coverage
         uses: codecov/codecov-action@v1
