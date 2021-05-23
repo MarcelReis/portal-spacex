@@ -159,6 +159,7 @@ export default defineComponent({
       return dayjs(date).format("YYYY-MM-DD HH:mm");
     },
     missingReddit() {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const redditLinks = (this as any).launch.links.reddit;
 
       return (
