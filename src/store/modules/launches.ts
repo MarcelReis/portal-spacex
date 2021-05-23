@@ -27,7 +27,6 @@ const Launches: Module<LaunchesStoreState, RootStoreState> = {
       return state.data?.filter(({ upcoming }) => upcoming) ?? [];
     },
     currentLaunch(state) {
-      console.log(`state`, state.currentID);
       return state.data?.find(({ id }) => id === state.currentID) ?? null;
     },
   },

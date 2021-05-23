@@ -2,7 +2,7 @@
   <li class="p-3 border-gray-100 border-2 rounded-md">
     <router-link :to="'/launch/' + id">
       <header class="flex gap-4 items-center">
-        <div class="w-10 h-10 rounded-full">
+        <div class="w-10 h-10">
           <img
             :src="thumb ?? 'https://via.placeholder.com/50'"
             alt=""
@@ -12,7 +12,7 @@
 
         <div class="flex flex-col">
           <h2 class="font-bold text-lg">{{ name }}</h2>
-          <span class="text-sm text-gray-700">{{ date }}</span>
+          <span class="text-sm text-gray-700">{{ formatedDate }}</span>
         </div>
 
         <div class="ml-auto">
@@ -65,6 +65,7 @@
 </template>
 
 <script lang="ts">
+import dayjs from "dayjs";
 import { defineComponent } from "vue";
 
 export default defineComponent({
@@ -73,12 +74,18 @@ export default defineComponent({
     id: String,
     name: String,
     upcoming: Boolean,
-    date: String,
+    date: { type: String, required: true },
     thumb: String,
     details: String,
     success: Boolean,
     crew: Array,
     payloads: Array,
+  },
+  computed: {
+    formatedDate(): string {
+      const date = new Date(this.date);
+      return dayjs(date).format("YYYY-MM-DD HH:mm");
+    },
   },
 });
 </script>

@@ -1,4 +1,6 @@
-export const failedLaunchMock = {
+import { LaunchesResponse, RocketsResponse } from "@/utils/spacexAPI";
+
+export const failedLaunchMock: LaunchesResponse = {
   fairings: {
     reused: false,
     recovery_attempt: false,
@@ -72,7 +74,7 @@ export const failedLaunchMock = {
   id: "5eb87cd9ffd86e000604b32a",
 };
 
-export const rocket = {
+export const rocket: RocketsResponse = {
   height: {
     meters: 22.25,
     feet: 73,
