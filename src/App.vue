@@ -1,9 +1,17 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <appbar />
+  <div class="mt-16 md:mt-14 w-full mb-8">
+    <router-view />
   </div>
-  <router-view />
 </template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+import Appbar from "./components/Appbar.vue";
+
+export default defineComponent({
+  components: { Appbar },
+});
+</script>
 
 <style></style>
