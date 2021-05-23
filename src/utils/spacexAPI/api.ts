@@ -16,7 +16,7 @@ class SpaceX {
   }
 
   async getRockets(): Promise<RocketsResponse[]> {
-    const response = await fetch(`${this.url}/launches`, {
+    const response = await fetch(`${this.url}/rockets`, {
       method: "GET",
     });
 

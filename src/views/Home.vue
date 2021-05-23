@@ -10,19 +10,32 @@
       lg:grid-cols-3
     "
   >
-    <LaunchList
-      title="Future Launches"
-      :loading="loading"
-      :error="error"
-      :data="futureLaunches"
-    />
+    <div class="col-span-1">
+      <LaunchList
+        title="Future Launches"
+        :loading="launchesLoading"
+        :error="launchesError"
+        :data="futureLaunches"
+      />
+    </div>
 
-    <LaunchList
-      title="Past Launches"
-      :loading="loading"
-      :error="error"
-      :data="pastLaunches"
-    />
+    <div class="col-span-1">
+      <LaunchList
+        title="Past Launches"
+        :loading="launchesLoading"
+        :error="launchesError"
+        :data="pastLaunches"
+      />
+    </div>
+
+    <div class="md:col-span-2 lg:col-span-1">
+      <RocketList
+        title="Rockets"
+        :loading="rocketsLoading"
+        :error="rocketsError"
+        :data="rockets"
+      />
+    </div>
   </div>
 </template>
 
@@ -30,21 +43,32 @@
 import { defineComponent } from "vue";
 import { mapGetters, mapState, useStore } from "vuex";
 import LaunchList from "@/components/LaunchList.vue";
+import RocketList from "@/components/RocketList.vue";
 import { key } from "@/store";
 
 export default defineComponent({
   name: "Home",
   components: {
     LaunchList,
+    RocketList,
   },
   mounted() {
     const store = useStore(key);
 
     store.dispatch("launches/load");
+    store.dispatch("rockets/load");
   },
 
   computed: {
-    ...mapState("launches", ["loading", "error"]),
+    ...mapState("launches", {
+      launchesLoading: "loading",
+      launchesError: "error",
+    }),
+    ...mapState("rockets", {
+      rocketsLoading: "loading",
+      rocketsError: "error",
+      rockets: "data",
+    }),
     ...mapGetters("launches", ["pastLaunches", "futureLaunches"]),
   },
 });
