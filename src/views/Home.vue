@@ -52,6 +52,7 @@ export default defineComponent({
     LaunchList,
     RocketList,
   },
+
   mounted() {
     const store = useStore(key);
 

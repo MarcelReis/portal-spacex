@@ -5,7 +5,8 @@ import { RootStoreState } from "..";
 export interface LaunchesStoreState {
   loading: null | boolean;
   error: unknown;
-  data: LaunchesResponse[];
+  data: null | LaunchesResponse[];
+  currentID: string;
 }
 
 const Launches: Module<LaunchesStoreState, RootStoreState> = {
@@ -14,15 +15,20 @@ const Launches: Module<LaunchesStoreState, RootStoreState> = {
   state: {
     loading: null,
     error: null,
-    data: [],
+    data: null,
+    currentID: "",
   },
 
   getters: {
-    pastLaunches: (state: LaunchesStoreState) => {
-      return state.data.filter(({ upcoming }) => !upcoming);
+    pastLaunches(state) {
+      return state.data?.filter(({ upcoming }) => !upcoming) ?? [];
     },
-    futureLaunches: (state: LaunchesStoreState) => {
-      return state.data.filter(({ upcoming }) => upcoming);
+    futureLaunches(state) {
+      return state.data?.filter(({ upcoming }) => upcoming) ?? [];
+    },
+    currentLaunch(state) {
+      console.log(`state`, state.currentID);
+      return state.data?.find(({ id }) => id === state.currentID) ?? null;
     },
   },
 
@@ -39,10 +45,17 @@ const Launches: Module<LaunchesStoreState, RootStoreState> = {
       state.loading = false;
       state.error = payload;
     },
+    setLaunch(state, payload: { id: string }) {
+      state.currentID = payload.id;
+    },
   },
 
   actions: {
     async load(context) {
+      if (context.state.data) {
+        return;
+      }
+
       context.commit("startLoading");
 
       try {
@@ -51,6 +64,14 @@ const Launches: Module<LaunchesStoreState, RootStoreState> = {
       } catch (error) {
         context.commit("failLoading", error);
       }
+    },
+
+    async setLaunch(context, payload) {
+      if (!context.state.data) {
+        await context.dispatch("load");
+      }
+
+      context.commit("setLaunch", payload);
     },
   },
 };
