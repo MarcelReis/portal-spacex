@@ -1,23 +1,30 @@
-<template v-if="missingReddit">
-  <ul class="grid grid-cols-3 gap-2">
+<template>
+  <ul v-if="imgs?.length" class="grid grid-cols-3 gap-2">
     <li
-      class="container"
+      class="container bg-gray-500 rounded"
       v-for="(img, i) in imgs"
       :key="i"
       :style="`background-image: url(${img})`"
     ></li>
   </ul>
+  <disclaimer-message
+    v-else
+    type="missing"
+    color="red"
+    msg="There aren't photos here"
+  />
 </template>
 
 <script>
 import { defineComponent } from "vue";
+import DisclaimerMessage from "./DisclaimerMessage.vue";
 
 export default defineComponent({
+  components: { DisclaimerMessage },
   name: "PhotoGallery",
   props: {
     imgs: Array,
   },
-  computed: {},
 });
 </script>
 

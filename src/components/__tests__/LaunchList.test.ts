@@ -5,7 +5,7 @@ import LaunchList from "../LaunchList.vue";
 import { createMockedRouter } from "@/test-utils";
 
 describe("<LaunchList />", () => {
-  it("when loading show a disclamer saying loading", async () => {
+  it("when loading show a disclaimer saying loading", async () => {
     const router = createMockedRouter(LaunchList);
     render(LaunchList, {
       props: { loading: true, error: undefined, data: [] },

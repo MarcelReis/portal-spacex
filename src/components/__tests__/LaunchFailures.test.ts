@@ -8,7 +8,7 @@ import {
 } from "@/__mocks__/api";
 
 describe("<launch-failures />", () => {
-  it("should display a disclamer when there's no failures", async () => {
+  it("should display a disclaimer when there's no failures", async () => {
     render(LaunchFailures, {
       props: { failures: [] },
     });

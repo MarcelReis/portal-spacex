@@ -19,36 +19,21 @@
       </li>
     </ul>
   </div>
-  <div v-else>
-    <div class="image-container">
-      <img class="w-full px-14" src="/img/success-astronaut.svg" alt="" />
-    </div>
-
-    <div
-      class="flex justify-center text-container relative bottom-4 text-center"
-    >
-      <p
-        class="
-          whitespace-nowrap
-          px-4
-          py-1
-          border border-green-900
-          bg-green-200
-          text-green-900
-          rounded-lg
-        "
-      >
-        The launch was completly successful
-      </p>
-    </div>
-  </div>
+  <disclaimer-message
+    v-else
+    type="success"
+    color="green"
+    msg=" The launch was completly successful"
+  />
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import dayjs from "dayjs";
+import DisclaimerMessage from "./DisclaimerMessage.vue";
 
 export default defineComponent({
+  components: { DisclaimerMessage },
   name: "LaunchFailures",
   props: {
     failures: { type: Array, required: true },
@@ -68,14 +53,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped>
-.text-container {
-}
-.image-container {
-  background-image: url(/img/liquidShape-space.svg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-</style>
