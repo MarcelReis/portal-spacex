@@ -105,27 +105,9 @@
         </div>
 
         <div class="col-span-12 md:col-span-4">
-          <div class="px-4 mb-8" v-if="launch.failures.length">
-            <h2 class="text-2xl">Failures</h2>
-
-            <ul class="flex flex-col gap-4">
-              <li
-                v-for="(failure, i) in launch.failures"
-                :key="i"
-                class="flex flex-col"
-              >
-                <div
-                  class="px-4 py-1 bg-red-200 rounded rounded-b-none mr-auto"
-                >
-                  {{ failure.time }}s -
-                  {{ failure.altitude ? failure.altitude + "m" : "?" }} Altitude
-                </div>
-
-                <div class="px-4 py-2 bg-red-50 mr-auto">
-                  {{ failure.reason }}
-                </div>
-              </li>
-            </ul>
+          <div class="mb-8 mx-4">
+            <h2 class="text-2xl mb-4">Failures</h2>
+            <launch-failures :failures="launch.failures" />
           </div>
 
           <div class="mb-8">
@@ -145,9 +127,10 @@ import { useStore, mapGetters, mapState } from "vuex";
 import { key } from "@/store";
 import YoutubePlayer from "@/components/YoutubePlayer.vue";
 import PhotoGallery from "@/components/PhotoGallery.vue";
+import LaunchFailures from "@/components/LaunchFailures.vue";
 
 export default defineComponent({
-  components: { YoutubePlayer, PhotoGallery },
+  components: { YoutubePlayer, PhotoGallery, LaunchFailures },
   name: "Launch",
   computed: {
     ...mapGetters("launches", { launch: "currentLaunch" }),

@@ -1,5 +1,25 @@
 import { LaunchesResponse, RocketsResponse } from "@/utils/spacexAPI";
 
+export const launchFailure = {
+  time: 33,
+  altitude: null,
+  reason: "merlin engine failure",
+};
+
+export const launchFailureBeforeLaunch = {
+  time: -165180,
+  altitude: 0,
+  reason:
+    "buckled liner in several of the COPV tanks, causing perforations that allowed liquid and/or solid oxygen to accumulate underneath the lining, which was ignited by friction.",
+};
+
+export const launchFailureOnAltitude = {
+  time: 139,
+  altitude: 40,
+  reason:
+    "helium tank overpressure lead to the second stage LOX tank explosion",
+};
+
 export const failedLaunchMock: LaunchesResponse = {
   fairings: {
     reused: false,
@@ -44,13 +64,7 @@ export const failedLaunchMock: LaunchesResponse = {
   launchpad: "5e9e4502f5090995de566f86",
   auto_update: true,
   launch_library_id: null,
-  failures: [
-    {
-      time: 33,
-      altitude: null,
-      reason: "merlin engine failure",
-    },
-  ],
+  failures: [launchFailure],
   flight_number: 1,
   name: "FalconSat",
   date_utc: "2006-03-24T22:30:00.000Z",
