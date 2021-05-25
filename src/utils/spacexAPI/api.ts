@@ -1,5 +1,10 @@
 import { LaunchesResponse, RocketsResponse } from "./types";
 
+type RequestOptions = {
+  endpoint: string;
+  method?: string;
+};
+
 class SpaceX {
   private url: string;
 
@@ -7,20 +12,25 @@ class SpaceX {
     this.url = "https://api.spacexdata.com/v4";
   }
 
-  async getLaunches(): Promise<LaunchesResponse[]> {
-    const response = await fetch(`${this.url}/launches`, {
-      method: "GET",
+  async request<T>({ endpoint, method = "GET" }: RequestOptions): Promise<T> {
+    const response = await fetch(`${this.url}/${endpoint}`, {
+      method,
     });
 
-    return await response.json();
+    const body = await response.json();
+    if (response.status !== 200) {
+      throw new Error(body);
+    }
+
+    return body;
+  }
+
+  async getLaunches(): Promise<LaunchesResponse[]> {
+    return await this.request({ endpoint: "launches" });
   }
 
   async getRockets(): Promise<RocketsResponse[]> {
-    const response = await fetch(`${this.url}/rockets`, {
-      method: "GET",
-    });
-
-    return await response.json();
+    return await this.request({ endpoint: "rockets" });
   }
 }
 
