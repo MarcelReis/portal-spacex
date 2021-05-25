@@ -140,6 +140,21 @@
       </strong>
     </noscript>
     <div id="app"></div>
-    <!-- built files will be auto injected -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-analytics.js"></script>
+
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyBP49kfpR7bnzW50qNsCVtDDXcQhK5uqVA",
+        authDomain: "portal-spacex.firebaseapp.com",
+        projectId: "portal-spacex",
+        storageBucket: "portal-spacex.appspot.com",
+        messagingSenderId: "329549139249",
+        appId: "1:329549139249:web:3bdc5d1482c31b8367f410",
+        measurementId: "G-4XP81SMVC4",
+      };
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
   </body>
 </html>
