@@ -4,4 +4,5 @@ module.exports = {
     "^.+\\.vue$": "vue-jest",
   },
   setupFilesAfterEnv: ["<rootDir>/jest-setup.js"],
+  testMatch: ["**/*.test.[jt]s?(x)", "**/__tests__/*.[jt]s?(x)"],
 };
