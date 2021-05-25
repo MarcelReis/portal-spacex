@@ -59,7 +59,7 @@ export default defineComponent({
   name: "DisclaimerMessage",
   props: {
     type: { type: String, required: true },
-    color: { type: String, required: true },
+    color: { type: String },
     msg: { type: String, required: true },
   },
   computed: {
@@ -67,6 +67,7 @@ export default defineComponent({
       const images: Record<string, string> = {
         success: "/img/success-astronaut.svg",
         missing: "/img/spooky-astronaut.svg",
+        question: "/img/questioning-astronaut.svg",
       };
 
       return images[this.type] ?? images.success;
