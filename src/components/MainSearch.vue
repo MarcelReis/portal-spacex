@@ -1,9 +1,9 @@
 <template>
   <div class="relative">
-    <form v-on:submit.prevent class="overflow-hidden rounded-lg">
+    <form v-on:submit.prevent class="flex overflow-hidden rounded-lg">
       <input
         v-on:input="searchFor"
-        class="text-gray-900 px-3 py-1"
+        class="text-gray-900 px-3 py-1 w-full"
         type="text"
         v-model="search"
       />

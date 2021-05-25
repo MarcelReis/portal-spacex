@@ -4,7 +4,7 @@
       <div class="flex h-full items-center">
         <router-link to="/" class="h-full inline-flex items-center">
           <img class="w-9 h-9" src="/img/logo.svg" />
-          <span class="ml-4 text-2xl">Portal SpaceX</span>
+          <span class="ml-4 text-2xl hidden md:inline">Portal SpaceX</span>
         </router-link>
 
         <div class="ml-4">
