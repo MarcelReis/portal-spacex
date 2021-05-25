@@ -7,7 +7,7 @@
       <header class="flex items-center gap-x-4 p-4">
         <div class="w-20 h-20">
           <img
-            :src="launch.links.patch.small ?? 'https://via.placeholder.com/50'"
+            :src="launch.links.patch.small ?? '/img/placeholder-rocket.png'"
             alt=""
             class="object-cover object-center w-full h-full"
           />

@@ -49,9 +49,7 @@
               :to="`/launch/${result.id}`"
             >
               <img
-                :src="
-                  result.links.patch.small ?? 'https://via.placeholder.com/50'
-                "
+                :src="result.links.patch.small ?? '/img/placeholder-rocket.png'"
                 alt=""
                 class="h-6 w-6 rounded mr-4 bg-gray-200"
               />

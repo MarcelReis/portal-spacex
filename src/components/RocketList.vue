@@ -15,7 +15,7 @@
         <header class="flex gap-4 items-center">
           <div class="w-10 h-10 rounded-md overflow-hidden">
             <img
-              :src="rocket.flickr_images[0] ?? 'https://via.placeholder.com/50'"
+              :src="rocket.flickr_images[0] ?? '/img/placeholder-rocket.png'"
               alt=""
               class="object-cover object-center w-full h-full"
             />
