@@ -12,10 +12,10 @@
             ml-4
             md:ml-0
             md:fixed
-            top-2
-            left-1/2
-            transform
-            -translate-x-1/2
+            md:top-2
+            md:left-1/2
+            md:transform
+            md:-translate-x-1/2
           "
         >
           <main-search />
