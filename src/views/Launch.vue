@@ -158,6 +158,11 @@ export default defineComponent({
 
     store.dispatch("launches/setLaunch", { id: this.$route.params.id });
   },
+  watch: {
+    "$route.params.id": function (id) {
+      this.$store.dispatch("launches/setLaunch", { id });
+    },
+  },
 });
 </script>
 
