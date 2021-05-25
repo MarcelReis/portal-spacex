@@ -18,6 +18,9 @@
         :error="launchesError"
         :data="futureLaunches.splice(0, 4)"
       />
+      <div class="mt-2">
+        <Button to="/future-launches">See all</Button>
+      </div>
     </div>
 
     <div class="col-span-1">
@@ -27,6 +30,9 @@
         :error="launchesError"
         :data="pastLaunches.splice(0, 4)"
       />
+      <div class="mt-2">
+        <Button to="/past-launches">See all</Button>
+      </div>
     </div>
 
     <div class="md:col-span-2 lg:col-span-1">
@@ -45,6 +51,7 @@ import { defineComponent } from "vue";
 import { mapGetters, mapState, useStore } from "vuex";
 import LaunchList from "@/components/LaunchList.vue";
 import RocketList from "@/components/RocketList.vue";
+import Button from "@/components/Button.vue";
 import { key } from "@/store";
 
 export default defineComponent({
@@ -52,6 +59,7 @@ export default defineComponent({
   components: {
     LaunchList,
     RocketList,
+    Button,
   },
 
   mounted() {
