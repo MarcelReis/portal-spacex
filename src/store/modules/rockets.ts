@@ -5,7 +5,8 @@ import { State } from "..";
 export interface RocketsStoreState {
   loading: null | boolean;
   error: unknown;
-  data: RocketsResponse[];
+  data: null | RocketsResponse[];
+  currentID: string;
 }
 
 const rockets: Module<RocketsStoreState, State> = {
@@ -14,10 +15,15 @@ const rockets: Module<RocketsStoreState, State> = {
   state: {
     loading: null,
     error: null,
-    data: [],
+    data: null,
+    currentID: "",
   },
 
-  getters: {},
+  getters: {
+    currentRocket(state) {
+      return state.data?.find(({ id }) => id === state.currentID) ?? null;
+    },
+  },
 
   mutations: {
     startLoading(state) {
@@ -32,6 +38,9 @@ const rockets: Module<RocketsStoreState, State> = {
       state.loading = false;
       state.error = payload;
     },
+    setRocket(state, payload: { id: string }) {
+      state.currentID = payload.id;
+    },
   },
 
   actions: {
@@ -44,6 +53,14 @@ const rockets: Module<RocketsStoreState, State> = {
       } catch (error) {
         context.commit("failLoading", error);
       }
+    },
+
+    async setRocket(context, payload) {
+      if (!context.state.data) {
+        await context.dispatch("load");
+      }
+
+      context.commit("setRocket", payload);
     },
   },
 };

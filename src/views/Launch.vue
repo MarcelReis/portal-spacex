@@ -130,8 +130,8 @@ import PhotoGallery from "@/components/PhotoGallery.vue";
 import LaunchFailures from "@/components/LaunchFailures.vue";
 
 export default defineComponent({
-  components: { YoutubePlayer, PhotoGallery, LaunchFailures },
   name: "Launch",
+  components: { YoutubePlayer, PhotoGallery, LaunchFailures },
   computed: {
     ...mapGetters("launches", { launch: "currentLaunch" }),
     ...mapState("launches", ["loading", "error"]),
@@ -165,5 +165,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style></style>
