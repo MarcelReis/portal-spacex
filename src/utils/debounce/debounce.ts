@@ -21,7 +21,7 @@ function debouncer<C extends Procedure>(
 
     handle = setTimeout(() => {
       callback(...args);
-    }, time);
+    }, time) as unknown as number;
   };
 }
 

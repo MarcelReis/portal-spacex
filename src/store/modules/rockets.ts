@@ -1,6 +1,6 @@
 import spacexAPI, { RocketsResponse } from "@/utils/spacexAPI";
 import { Module } from "vuex";
-import { RootStoreState } from "..";
+import { State } from "..";
 
 export interface RocketsStoreState {
   loading: null | boolean;
@@ -8,7 +8,7 @@ export interface RocketsStoreState {
   data: RocketsResponse[];
 }
 
-const rockets: Module<RocketsStoreState, RootStoreState> = {
+const rockets: Module<RocketsStoreState, State> = {
   namespaced: true,
 
   state: {

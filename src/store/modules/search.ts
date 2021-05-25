@@ -1,6 +1,6 @@
 import { LaunchesResponse } from "@/utils/spacexAPI";
 import { Module } from "vuex";
-import { RootStoreState } from "..";
+import { State } from "..";
 
 export interface SearchStoreState {
   value: string;
@@ -8,7 +8,7 @@ export interface SearchStoreState {
 
 type Results<T> = Array<{ name: string; results: T }>;
 
-const search: Module<SearchStoreState, RootStoreState> = {
+const search: Module<SearchStoreState, State> = {
   namespaced: true,
 
   state: {

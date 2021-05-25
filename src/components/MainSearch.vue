@@ -3,7 +3,6 @@
     <form v-on:submit.prevent class="flex overflow-hidden rounded-lg">
       <input
         v-on:input="searchFor"
-        v-on:blur="cleanSearch"
         class="text-gray-900 px-3 py-1 w-full"
         type="text"
         v-model="search"

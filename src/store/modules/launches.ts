@@ -1,6 +1,6 @@
 import spacexAPI, { LaunchesResponse } from "@/utils/spacexAPI";
 import { Module } from "vuex";
-import { RootStoreState } from "..";
+import { State } from "..";
 
 export interface LaunchesStoreState {
   loading: null | boolean;
@@ -9,7 +9,7 @@ export interface LaunchesStoreState {
   currentID: string;
 }
 
-const Launches: Module<LaunchesStoreState, RootStoreState> = {
+const Launches: Module<LaunchesStoreState, State> = {
   namespaced: true,
 
   state: {

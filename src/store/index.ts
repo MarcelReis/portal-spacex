@@ -1,5 +1,5 @@
 import { InjectionKey } from "vue";
-import { createStore, Store } from "vuex";
+import { createStore, Store, StoreOptions } from "vuex";
 
 import launches, { LaunchesStoreState } from "./modules/launches";
 import rockets, { RocketsStoreState } from "./modules/rockets";
@@ -11,18 +11,16 @@ export interface State {
   search: SearchStoreState;
 }
 
-export type RootStoreState = State;
-
 export const key: InjectionKey<Store<State>> = Symbol();
 
-const rootStore = createStore<State>({
-  mutations: {},
-  actions: {},
+export const storeOptions: StoreOptions<State> = {
   modules: {
     launches,
     rockets,
     search,
   },
-});
+};
+
+const rootStore = createStore<State>(storeOptions);
 
 export default rootStore;
