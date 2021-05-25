@@ -3,22 +3,26 @@ import { createStore, Store } from "vuex";
 
 import launches, { LaunchesStoreState } from "./modules/launches";
 import rockets, { RocketsStoreState } from "./modules/rockets";
-
-// eslint-disable-next-line @typescript-eslint/ban-types
-export type RootStoreState = {};
+import search, { SearchStoreState } from "./modules/search";
 
 export interface State {
   launches: LaunchesStoreState;
   rockets: RocketsStoreState;
+  search: SearchStoreState;
 }
+
+export type RootStoreState = State;
 
 export const key: InjectionKey<Store<State>> = Symbol();
 
-const rootStore = createStore<RootStoreState>({
-  state: {},
+const rootStore = createStore<State>({
   mutations: {},
   actions: {},
-  modules: { launches, rockets },
+  modules: {
+    launches,
+    rockets,
+    search,
+  },
 });
 
 export default rootStore;
