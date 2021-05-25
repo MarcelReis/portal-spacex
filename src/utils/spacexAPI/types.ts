@@ -112,7 +112,7 @@ export interface FirstStage {
   reusable: boolean;
   engines: number;
   fuel_amount_tons: number;
-  burn_time_sec?: number;
+  burn_time_sec: number | null;
 }
 
 export interface Thrust {
@@ -121,13 +121,13 @@ export interface Thrust {
 }
 
 export interface CompositeHeight {
-  meters?: number;
-  feet?: number;
+  meters?: number | null;
+  feet?: number | null;
 }
 
 export interface CompositeDiameter {
-  meters?: number;
-  feet?: number;
+  meters?: number | null;
+  feet?: number | null;
 }
 
 export interface CompositeFairing {
@@ -146,7 +146,7 @@ export interface SecondStage {
   reusable: boolean;
   engines: number;
   fuel_amount_tons: number;
-  burn_time_sec?: number;
+  burn_time_sec: number | null;
 }
 
 export interface Isp {
@@ -171,8 +171,8 @@ export interface Engines {
   number: number;
   type: string;
   version: string;
-  layout: string;
-  engine_loss_max?: number;
+  layout: string | null;
+  engine_loss_max: number | null;
   propellant_1: string;
   propellant_2: string;
   thrust_to_weight: number;
