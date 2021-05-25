@@ -16,7 +16,7 @@
         title="Future Launches"
         :loading="launchesLoading"
         :error="launchesError"
-        :data="futureLaunches.splice(0, 4)"
+        :data="futureLaunches.slice(0, 4)"
       />
       <div class="mt-2">
         <Button to="/future-launches">See all</Button>
@@ -28,7 +28,7 @@
         title="Past Launches"
         :loading="launchesLoading"
         :error="launchesError"
-        :data="pastLaunches.splice(0, 4)"
+        :data="pastLaunches.slice(0, 4)"
       />
       <div class="mt-2">
         <Button to="/past-launches">See all</Button>

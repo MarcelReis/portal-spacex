@@ -1,6 +1,12 @@
 import spacexAPI, { LaunchesResponse } from "@/utils/spacexAPI";
+import dayjs from "dayjs";
 import { Module } from "vuex";
 import { State } from "..";
+
+const sortByLaunchDate =
+  ({ asc }: { asc: boolean }) =>
+  (a: LaunchesResponse, b: LaunchesResponse) =>
+    dayjs(b.date_utc).diff(dayjs(a.date_utc)) * (asc ? 1 : -1);
 
 export interface LaunchesStoreState {
   loading: null | boolean;
@@ -21,10 +27,16 @@ const Launches: Module<LaunchesStoreState, State> = {
 
   getters: {
     pastLaunches(state) {
-      return state.data?.filter(({ upcoming }) => !upcoming) ?? [];
+      const launches = state.data?.filter(({ upcoming }) => !upcoming) ?? [];
+      launches.sort(sortByLaunchDate({ asc: true }));
+
+      return launches;
     },
     futureLaunches(state) {
-      return state.data?.filter(({ upcoming }) => upcoming) ?? [];
+      const launches = state.data?.filter(({ upcoming }) => upcoming) ?? [];
+      launches.sort(sortByLaunchDate({ asc: false }));
+
+      return launches;
     },
     currentLaunch(state) {
       return state.data?.find(({ id }) => id === state.currentID) ?? null;
