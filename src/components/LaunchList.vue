@@ -6,7 +6,7 @@
 
     <p v-if="loading">Loading...</p>
     <p v-else-if="error">{{ error.msg }}</p>
-    <ul v-else class="m-0 flex flex-col gap-2">
+    <ul v-else class="m-0 flex flex-col gap-4">
       <launch-item
         v-for="launch in data"
         :key="launch.id"

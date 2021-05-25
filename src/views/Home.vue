@@ -3,6 +3,7 @@
     class="
       container
       mx-auto
+      pt-16
       grid grid-cols-1
       md:grid-cols-2
       gap-x-6
@@ -15,7 +16,7 @@
         title="Future Launches"
         :loading="launchesLoading"
         :error="launchesError"
-        :data="futureLaunches"
+        :data="futureLaunches.splice(0, 4)"
       />
     </div>
 
@@ -24,7 +25,7 @@
         title="Past Launches"
         :loading="launchesLoading"
         :error="launchesError"
-        :data="pastLaunches"
+        :data="pastLaunches.splice(0, 4)"
       />
     </div>
 

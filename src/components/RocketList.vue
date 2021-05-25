@@ -6,11 +6,11 @@
 
     <p v-if="loading">Loading...</p>
     <p v-else-if="error">{{ error.msg }}</p>
-    <ul v-else class="m-0 flex flex-col gap-2">
+    <ul v-else class="m-0 flex flex-col gap-4">
       <li
         v-for="rocket in data"
         :key="rocket.id"
-        class="p-3 pb-2 border-gray-100 border-2 rounded-md"
+        class="p-3 pb-2 border-gray-100 border-2 rounded-lg"
       >
         <header class="flex gap-4 items-center">
           <div class="w-10 h-10 rounded-md overflow-hidden">

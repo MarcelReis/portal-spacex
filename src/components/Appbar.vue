@@ -7,7 +7,17 @@
           <span class="ml-4 text-2xl hidden md:inline">Portal SpaceX</span>
         </router-link>
 
-        <div class="ml-4">
+        <div
+          class="
+            ml-4
+            md:ml-0
+            md:fixed
+            top-2
+            left-1/2
+            transform
+            -translate-x-1/2
+          "
+        >
           <main-search />
         </div>
       </div>

@@ -1,5 +1,5 @@
 <template>
-  <li class="p-3 border-gray-100 border-2 rounded-md">
+  <li class="p-3 border-gray-100 border-2 rounded-lg">
     <router-link :to="'/launch/' + id">
       <header class="flex gap-4 items-center">
         <div class="w-10 h-10">
