@@ -14,6 +14,13 @@ const routes: Array<RouteRecordRaw> = [
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
   {
+    path: "/launches",
+    alias: ["/future-launches", "/past-launches"],
+    name: "Launches",
+    component: () =>
+      import(/* webpackChunkName: "launches" */ "../views/Launches.vue"),
+  },
+  {
     path: "/launch/:id",
     name: "Launch",
     component: () =>
