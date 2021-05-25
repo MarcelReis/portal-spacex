@@ -15,6 +15,7 @@ class SpaceX {
   async request<T>({ endpoint, method = "GET" }: RequestOptions): Promise<T> {
     const response = await fetch(`${this.url}/${endpoint}`, {
       method,
+      cache: "force-cache",
     });
 
     const body = await response.json();
