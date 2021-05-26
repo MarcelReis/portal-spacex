@@ -13,7 +13,7 @@
       transition-colors
       text-white
     "
-    to="/future-launches"
+    :to="to"
   >
     <slot />
   </router-link>

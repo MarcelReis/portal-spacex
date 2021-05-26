@@ -3,7 +3,6 @@
     class="
       container
       mx-auto
-      pt-16
       grid grid-cols-1
       md:grid-cols-2
       gap-x-6
@@ -11,7 +10,7 @@
       lg:grid-cols-3
     "
   >
-    <div class="col-span-1">
+    <div class="col-span-1 pt-8">
       <launch-list
         title="Future Launches"
         :loading="launchesLoading"
@@ -23,7 +22,7 @@
       </div>
     </div>
 
-    <div class="col-span-1">
+    <div class="col-span-1 pt-8">
       <launch-list
         title="Past Launches"
         :loading="launchesLoading"
@@ -35,7 +34,7 @@
       </div>
     </div>
 
-    <div class="md:col-span-2 lg:col-span-1">
+    <div class="md:col-span-2 lg:col-span-1 pt-8 max-w-lg mx-auto">
       <rocket-list
         title="Rockets"
         :loading="rocketsLoading"

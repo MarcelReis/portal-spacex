@@ -32,7 +32,7 @@
           </p>
 
           <div class="flex">
-            <p class="text-sm ml-auto mt-1">
+            <p class="text-sm ml-auto mt-1.5">
               Cost per launche: {{ formatMoney(rocket.cost_per_launch) }}
             </p>
           </div>
@@ -62,9 +62,8 @@ export default defineComponent({
 
 <style scoped>
 .description {
-  height: 96px;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }

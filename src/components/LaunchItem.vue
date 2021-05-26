@@ -6,12 +6,12 @@
           <img
             :src="thumb ?? '/img/placeholder-rocket.png'"
             alt=""
-            class="object-cover object-center w-full h-full"
+            class="object-cover object-center w-10 h-10 min-w-10"
           />
         </div>
 
         <div class="flex flex-col">
-          <h2 class="font-bold text-lg">{{ name }}</h2>
+          <h2 class="title font-bold text-lg">{{ name }}</h2>
           <span class="text-sm text-gray-700">{{ formatedDate }}</span>
         </div>
 
@@ -77,10 +77,19 @@ export default defineComponent({
 
 <style scoped>
 .description {
-  height: 72px;
+  min-height: 48px;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+.title {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.min-w-10 {
+  min-width: 2.5rem;
 }
 </style>
