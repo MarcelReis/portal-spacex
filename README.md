@@ -6,7 +6,21 @@
   <img src="/public/img/logo-readme.png" width="300px" height="300px" />
 </p>
 
+## Main dependencies
+ 
+ - Vue - 3.x
+ - Vuex - 4.x
+ - Vue Router - 4.x
+ - TailwindCSS - 2.x
+
 ## Project setup
+
+### Requirements:
+
+ - Node.js >= 10.x
+ - yarn >= 1.22.x
+
+### Install dependencies
 ```
 yarn install
 ```
@@ -16,17 +30,40 @@ yarn install
 yarn serve
 ```
 
-### Compiles and minifies for production
+## Deploy
+
+Deploys are made automatically by the Continuous Integration (GitHub Actions) after a successful build. The final CI step will upload assets to Firebase Hosting. Besides hosting, this project uses firebase analytics to track access (Yep, I already collected your information).
+
+To run deploys locally in a machine first build the static production files by running:
 ```
 yarn build
 ```
 
-### Run your unit tests
+Then you will need to download and set up Firebase CLI and log in to your account. After this, run the command bellow to deploy the firebase configuration and assets files (it may take a while, it depends on a fast and reliable internet connection)
+```
+firebase deploy --only hosting
+```
+
+## Run tests
+
+#### Test Envirioment
+ - Jest - 24.x
+ - Testing Libraries Vue - 6.x
+ - msw - 0.29.x
+
+
+Tests are running using testing-libraries/vue, userEvents, and msw. This configuration aims to achieve better usability and test behavior ([and not implementation](https://kentcdodds.com/blog/testing-implementation-details)). 
+
+Every push to the master branch runs the entire test suit. After completed, it generates a coverage report that is uploaded to CodeCov for tracking purposes. The code coverage might be misleading since it just takes into account files tested.
+
 ```
 yarn test:unit
 ```
 
 ### Lints and fixes files
+
+Using the default configuration from Vue 3, but with additional configuration for Prettier, using my personal preference.
+
 ```
 yarn lint
 ```
