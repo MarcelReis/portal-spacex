@@ -42,24 +42,40 @@
           </div>
 
           <div class="px-4 mb-8" v-if="!missingReddit">
-            <h2 class="text-2xl mb-4">Reddit Foruns</h2>
+            <h2 class="text-2xl mb-4">Reddit Forums</h2>
 
             <ul>
               <li v-if="launch.links.reddit.campaign">
-                <a target="_blank" :href="launch.links.reddit.campaign">
+                <a
+                  class=":hover:text-green-700"
+                  target="_blank"
+                  :href="launch.links.reddit.campaign"
+                >
                   Campaign
                 </a>
               </li>
-              <li v-if="launch.links.reddit.launch">
+              <li
+                class=":hover:text-green-700"
+                v-if="launch.links.reddit.launch"
+              >
                 <a target="_blank" :href="launch.links.reddit.launch">
                   Launch
                 </a>
               </li>
               <li v-if="launch.links.reddit.media">
-                <a target="_blank" :href="launch.links.reddit.media">Media</a>
+                <a
+                  class=":hover:text-green-700"
+                  target="_blank"
+                  :href="launch.links.reddit.media"
+                  >Media</a
+                >
               </li>
               <li v-if="launch.links.reddit.recovery">
-                <a target="_blank" :href="launch.links.reddit.recovery">
+                <a
+                  class=":hover:text-green-700"
+                  target="_blank"
+                  :href="launch.links.reddit.recovery"
+                >
                   Recovery
                 </a>
               </li>
