@@ -20,12 +20,28 @@ describe("<main-search />", () => {
 
     expect(screen.getByRole("button")).toBeInTheDocument();
     expect(screen.getByRole("textbox")).toBeInTheDocument();
+
+    const search = screen.getByRole("textbox");
+
+    expect(search).toBeDisabled();
+    await waitFor(
+      () => {
+        expect(search).toBeEnabled();
+      },
+      { timeout: 2000 }
+    );
   });
 
   it("display results after tipying and waiting for the debouncer", async () => {
     await setup();
 
     const search = screen.getByRole("textbox");
+    await waitFor(
+      () => {
+        expect(search).toBeEnabled();
+      },
+      { timeout: 2000 }
+    );
 
     userEvent.type(search, failedLaunchMock.name);
 
@@ -38,6 +54,12 @@ describe("<main-search />", () => {
     await setup();
 
     const search = screen.getByRole("textbox");
+    await waitFor(
+      () => {
+        expect(search).toBeEnabled();
+      },
+      { timeout: 2000 }
+    );
 
     userEvent.type(search, "randomslkfjasdf");
 

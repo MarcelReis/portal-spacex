@@ -3,9 +3,11 @@
     <form v-on:submit.prevent class="flex overflow-hidden rounded-lg">
       <input
         v-on:input="searchFor"
-        class="text-gray-900 px-3 py-1 w-full"
+        :class="`text-gray-900 px-3 py-1 w-full
+      ${disabled ? 'bg-gray-300' : 'bg-white'}`"
         type="text"
         v-model="search"
+        :disabled="disabled"
       />
       <button
         type="submit"
@@ -69,7 +71,7 @@
 
 <script>
 import { defineComponent } from "vue";
-import { mapGetters, mapMutations } from "vuex";
+import { mapGetters, mapMutations, mapState } from "vuex";
 import debounce from "@/utils/debounce";
 
 export default defineComponent({
@@ -85,6 +87,11 @@ export default defineComponent({
   computed: {
     ...mapMutations("search", ["setValue"]),
     ...mapGetters("search", ["resultGroups"]),
+    ...mapState("rockets", { rocketsLoading: "loading" }),
+    ...mapState("launches", { launchesLoading: "loading" }),
+    disabled() {
+      return this.rocketsLoading || this.launchesLoading;
+    },
   },
   methods: {
     searchFor() {
