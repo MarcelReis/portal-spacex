@@ -8,6 +8,7 @@ import { failedLaunchMock } from "@/__mocks__/api";
 import "@/__mocks__/server";
 
 const setup = async () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, { store }] = await renderWithPlugins(MainSearch);
 
   store.dispatch("launches/load");
