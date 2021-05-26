@@ -15,7 +15,7 @@
           <span class="text-sm text-gray-700">{{ formatedDate }}</span>
         </div>
 
-        <div class="ml-auto mb-auto">
+        <div class="ml-auto mb-auto" v-if="!upcoming">
           <badge :variant="success ? 'green' : 'red'">
             {{ success ? "Success" : "Fail" }}
           </badge>
