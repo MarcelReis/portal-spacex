@@ -13,5 +13,3 @@ export default defineComponent({
   components: { Appbar },
 });
 </script>
-
-<style></style>
