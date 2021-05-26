@@ -21,18 +21,12 @@
           <div class="flex gap-x-2 items-center">
             <p>{{ formatedDate }}</p>
 
-            <span
-              class="rounded-sm text-xs px-2 py-0.5 text-white bg-green-700"
-              v-if="launch.success && !launch.upcoming"
+            <badge
+              v-if="!launch.upcoming"
+              :variant="launch.success ? 'green' : 'red'"
             >
-              Success
-            </span>
-            <span
-              class="rounded-sm text-xs px-2 py-0.5 text-white bg-red-700"
-              v-else-if="!launch.success && !launch.upcoming"
-            >
-              Fail
-            </span>
+              {{ launch.success ? "Success" : "Fail" }}
+            </badge>
           </div>
         </div>
       </header>
@@ -128,10 +122,11 @@ import { key } from "@/store";
 import YoutubePlayer from "@/components/YoutubePlayer.vue";
 import PhotoGallery from "@/components/PhotoGallery.vue";
 import LaunchFailures from "@/components/LaunchFailures.vue";
+import Badge from "@/components/Badge.vue";
 
 export default defineComponent({
   name: "Launch",
-  components: { YoutubePlayer, PhotoGallery, LaunchFailures },
+  components: { YoutubePlayer, PhotoGallery, LaunchFailures, Badge },
   computed: {
     ...mapGetters("launches", { launch: "currentLaunch" }),
     ...mapState("launches", ["loading", "error"]),

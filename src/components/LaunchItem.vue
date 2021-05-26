@@ -15,18 +15,10 @@
           <span class="text-sm text-gray-700">{{ formatedDate }}</span>
         </div>
 
-        <div class="ml-auto">
-          <span
-            class="rounded-sm px-2 py-0.5 text-white bg-green-700"
-            v-if="success && !upcoming"
-          >
-            Success
-          </span>
-          <span
-            class="rounded-sm px-2 py-0.5 text-white bg-red-700"
-            v-else-if="!success && !upcoming"
-            >Fail</span
-          >
+        <div class="ml-auto mb-auto">
+          <badge :variant="success ? 'green' : 'red'">
+            {{ success ? "Success" : "Fail" }}
+          </badge>
         </div>
       </header>
 
@@ -35,30 +27,21 @@
       </div>
 
       <footer class="flex justify-end gap-2">
-        <span
-          class="text-xs rounded-sm px-1 py-0.5 text-white bg-gray-500"
-          v-if="payloads.length"
-        >
-          {{ payloads.length }} Payload(s)
-        </span>
-        <span
-          class="text-xs rounded-sm px-1 py-0.5 text-white bg-gray-500"
-          v-else
-        >
-          No Payload
-        </span>
+        <badge>
+          {{
+            payloads.length
+              ? `${payloads.length} Payload${payloads.length > 1 ? "s" : ""}`
+              : "No Payload"
+          }}
+        </badge>
 
-        <span
-          class="text-xs rounded-sm px-1 py-0.5 text-white bg-gray-500"
-          v-if="crew.length"
-        >
-          {{ crew.length }} Astronaut(s)
-        </span>
-        <span
-          class="text-xs rounded-sm px-1 py-0.5 text-white bg-gray-500"
-          v-else
-          >No Crew</span
-        >
+        <badge>
+          {{
+            crew.length
+              ? `${crew.length} Astronaut${crew.length > 1 ? "s" : ""}`
+              : "No Payload"
+          }}
+        </badge>
       </footer>
     </router-link>
   </li>
@@ -67,9 +50,11 @@
 <script lang="ts">
 import dayjs from "dayjs";
 import { defineComponent } from "vue";
+import Badge from "./Badge.vue";
 
 export default defineComponent({
   name: "LaunchItem",
+  components: { Badge },
   props: {
     id: String,
     name: String,
