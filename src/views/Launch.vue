@@ -99,7 +99,7 @@
         </div>
 
         <div class="col-span-12 md:col-span-4">
-          <div class="mb-8 mx-4">
+          <div class="mb-8 mx-4" v-if="!launch.upcoming">
             <h2 class="text-2xl mb-4">Failures</h2>
             <launch-failures :failures="launch.failures" />
           </div>
