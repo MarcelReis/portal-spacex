@@ -27,7 +27,7 @@ export default defineComponent({
   components: { DisclaimerMessage },
   name: "YoutubePlayer",
   props: {
-    id: { type: String, required: true },
+    id: String,
   },
   computed: {
     src(): string {
