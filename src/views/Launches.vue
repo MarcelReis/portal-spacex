@@ -29,10 +29,10 @@ export default defineComponent({
     ...mapGetters("launches", ["futureLaunches", "pastLaunches"]),
     ...mapState("launches", { allLaunches: "data" }),
     showing(): string {
-      if (this.$route.path.match(/future-launches^/)) {
+      if (this.$route.path.match(/future-launches$/)) {
         return "future-launches";
       }
-      if (this.$route.path.match(/past-launches^/)) {
+      if (this.$route.path.match(/past-launches$/)) {
         return "past-launches";
       }
 
